@@ -1,5 +1,5 @@
 # owonlib
-Library for Owon oscilloscopes USB Linux
+C library for Owon oscilloscopes USB Linux
 
 Communicating through USB to Owon Oscilloscopes. Tested with two different SDS7102 models.
 
