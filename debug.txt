@@ -1,4 +1,4 @@
-<<<< Welcome to PSOwon debug information <<<<
+<<<< Welcome to owonlib debug information <<<<
 ..Initialising libUSB.OK
 ..Searching USB buses for Owon
 ....Found an Owon device 5345:1234 on bus 002
@@ -39,10 +39,10 @@ Entering readOwonMemory:
     File description: SPBS02
     File length: 6193 bytes
     Device name: Owon SDS7102
-..Time stamp. Seconds since 1 January 1970: 1596018008
-..Time: 29/Jul/2020 11:20:08
+..Time stamp. Seconds since 1 January 1970: 1596022087
+..Time: 29/Jul/2020 12:28:07
 |-------------------- FILE DATA, SPBS02 (length:6193) ------------------
-| start address: 0x0x55555555c770
+| start address: 0x55555555c770
 | file description: SPBS02
 | file length: 6193 bytes
 | device name: SDS7102
@@ -103,25 +103,25 @@ Owon 3rd-int flag>128: We're still not done yet!!
 	 ASCII  :                             ?   
 	00000030: 00 00 00 00 00 00 00 00 00 20 42 00 00 01 00 00 
 	 ASCII  :                       B           
-	00000040: 00 00 00 00 00 01 00 00 00 01 00 00 00 01 00 00 
+	00000040: 00 00 00 00 00 01 00 00 00 00 00 00 00 01 00 00 
 	 ASCII  :                                 
 |-------------------- FILE DATA, SPBS02 (length:6193) ------------------
-| start address: 0x0x55555555c770
+| start address: 0x55555555c770
 | file description: SPBS02
 | file length: 6193 bytes
 | device name: SDS7102
 | number of channels read: 2
-|   CH1 at address: 0x0x55555555c7a6
-|   CH2 at address: 0x0x55555555fa30
+|   CH1 at address: 0x55555555c7a6
+|   CH2 at address: 0x55555555fa30
 |-----------------------------------------------------------------------
 
 
 |-------------------- CHANNEL DATA, CH1 (length:6139) ------------------
 | total memory size: 6139 bytes
 | total memory size: 6193 bytes
-| memory address: 0x0x55555555c770
-| header address: 0x0x55555555c7a6
-| data address  : 0x0x55555555c7e1
+| memory address: 0x55555555c770
+| header address: 0x55555555c7a6
+| data address  : 0x55555555c7e1
 |------ HEADER (length:59) ---------------------------------------------
 | channel name: CH1
 | data block length: 6136 bytes
@@ -133,11 +133,11 @@ Owon 3rd-int flag>128: We're still not done yet!!
 | timebase level: 14
 | zeropoint: -3
 | vert scale level: 8
-| attenmultpowrindex: 0x00000000 (0)
-| spacinginterval: 0x3f000000 (1056964608)
+| attenmultpowrindex: 0
+| spacinginterval: 1056964608
 | frequency: 0 Hz
-| cycle: 0x00000000 (0)
-| voltvalueperpoint: 0x42200000 (1109393408)
+| cycle: 0
+| voltvalueperpoint: 1109393408
 |------ DATA (length:6080) ---------------------------------------------
 | samples: 3040. Total of 2*3040 = 6080 bytes
 |--------- CALCULATED VALUES -------------------------------------------
@@ -149,9 +149,9 @@ Owon 3rd-int flag>128: We're still not done yet!!
 |-------------------- CHANNEL DATA, CH2 (length:6139) ------------------
 | total memory size: 6139 bytes
 | total memory size: 6139 bytes
-| memory address: 0x0x55555555fa30
-| header address: 0x0x55555555fa30
-| data address  : 0x0x55555555fa6b
+| memory address: 0x55555555fa30
+| header address: 0x55555555fa30
+| data address  : 0x55555555fa6b
 |------ HEADER (length:59) ---------------------------------------------
 | channel name: CH2
 | data block length: 6136 bytes
@@ -163,11 +163,11 @@ Owon 3rd-int flag>128: We're still not done yet!!
 | timebase level: 14
 | zeropoint: 0
 | vert scale level: 8
-| attenmultpowrindex: 0x00000000 (0)
-| spacinginterval: 0x3f000000 (1056964608)
+| attenmultpowrindex: 0
+| spacinginterval: 1056964608
 | frequency: 0 Hz
-| cycle: 0x00000000 (0)
-| voltvalueperpoint: 0x42200000 (1109393408)
+| cycle: 0
+| voltvalueperpoint: 1109393408
 |------ DATA (length:6080) ---------------------------------------------
 | samples: 3040. Total of 2*3040 = 6080 bytes
 |--------- CALCULATED VALUES -------------------------------------------
@@ -215,10 +215,10 @@ Entering readOwonMemory:
     File description: SPBS02
     Device name: Owon SDS7102
     File length: 6149 bytes
-..Time stamp. Seconds since 1 January 1970: 1596018009
-..Time: 29/Jul/2020 11:20:09
+..Time stamp. Seconds since 1 January 1970: 1596022088
+..Time: 29/Jul/2020 12:28:08
 |-------------------- FILE DATA, SPBS02 (length:6149) ------------------
-| start address: 0x0x55555555c770
+| start address: 0x55555555c770
 | file description: SPBS02
 | file length: 6149 bytes
 | device name: SDS7102
@@ -243,10 +243,10 @@ Entering readOwonMemory:
                                                    
 	00000020: 00 00 00 08 00 00 00 01 00 00 00 00 00 20 40 00 
 	 ASCII  :                              @   
-	00000030: 00 00 00 00 00 00 00 00 00 20 42 ff ff ff ff ff 
-	 ASCII  :                       B  �  �  �  �  � 
-	00000040: ff ff ff ff ff ff ff ff ff ff ff ff ff 00 00 ff 
-	 ASCII  :  �  �  �  �  �  �  �  �  �  �  �  �  �      � 
+	00000030: 00 00 00 00 00 00 00 00 00 20 42 ff ff 00 00 fe 
+	 ASCII  :                       B  �  �      � 
+	00000040: ff ff ff ff ff 00 00 ff ff ff ff ff ff ff ff ff 
+	 ASCII  :  �  �  �  �  �      �  �  �  �  �  �  �  �  � 
 
 Owon 3rd-int flag>128: We're still not done yet!!
 ..Attempting to read response header 0x000c (12) bytes from device...
@@ -277,31 +277,34 @@ Owon 3rd-int flag>128: We're still not done yet!!
                                                    
 	00000020: 00 00 00 01 00 00 00 01 00 00 00 00 00 20 40 00 
 	 ASCII  :                               @   
-	00000030: 00 00 00 00 00 00 00 cd cc 4c 3e 0a 00 0b 00 06 
+	00000030: 00 00 00 00 00 00 00 cd cc 4c 3e 0a 00 0b 00 09 
 	 ASCII  :                �  �  L  >  
     
-         
-	00000040: 00 09 00 07 00 0c 00 07 00 09 00 07 00 0b 00 07 
-	 ASCII  :    	        
-                                        	        
-                                                             
+        	 
+	00000040: 00 0a 00 09 00 0c 00 08 00 0c 00 0a 00 0b 00 08 
+	 ASCII  :    
+    	    
+                   
+                       
+    
+        
 |-------------------- FILE DATA, SPBS02 (length:6149) ------------------
-| start address: 0x0x55555555c770
+| start address: 0x55555555c770
 | file description: SPBS02
 | file length: 6149 bytes
 | device name: SDS7102
 | number of channels read: 2
-|   CH1 at address: 0x0x55555555c77a
-|   CH2 at address: 0x0x55555555fa30
+|   CH1 at address: 0x55555555c77a
+|   CH2 at address: 0x55555555fa30
 |-----------------------------------------------------------------------
 
 
 |-------------------- CHANNEL DATA, CH1 (length:6139) ------------------
 | total memory size: 6139 bytes
 | total memory size: 6149 bytes
-| memory address: 0x0x55555555c770
-| header address: 0x0x55555555c77a
-| data address  : 0x0x55555555c7b5
+| memory address: 0x55555555c770
+| header address: 0x55555555c77a
+| data address  : 0x55555555c7b5
 |------ HEADER (length:59) ---------------------------------------------
 | channel name: CH1
 | data block length: 6136 bytes
@@ -313,11 +316,11 @@ Owon 3rd-int flag>128: We're still not done yet!!
 | timebase level: 16
 | zeropoint: 0
 | vert scale level: 8
-| attenmultpowrindex: 0x00000001 (1)
-| spacinginterval: 0x40200000 (1075838976)
+| attenmultpowrindex: 1
+| spacinginterval: 1075838976
 | frequency: 0 Hz
-| cycle: 0x00000000 (0)
-| voltvalueperpoint: 0x42200000 (1109393408)
+| cycle: 0
+| voltvalueperpoint: 1109393408
 |------ DATA (length:6080) ---------------------------------------------
 | samples: 3040. Total of 2*3040 = 6080 bytes
 |--------- CALCULATED VALUES -------------------------------------------
@@ -329,9 +332,9 @@ Owon 3rd-int flag>128: We're still not done yet!!
 |-------------------- CHANNEL DATA, CH2 (length:6139) ------------------
 | total memory size: 6139 bytes
 | total memory size: 6139 bytes
-| memory address: 0x0x55555555fa30
-| header address: 0x0x55555555fa30
-| data address  : 0x0x55555555fa6b
+| memory address: 0x55555555fa30
+| header address: 0x55555555fa30
+| data address  : 0x55555555fa6b
 |------ HEADER (length:59) ---------------------------------------------
 | channel name: CH2
 | data block length: 6136 bytes
@@ -343,11 +346,11 @@ Owon 3rd-int flag>128: We're still not done yet!!
 | timebase level: 16
 | zeropoint: 0
 | vert scale level: 1
-| attenmultpowrindex: 0x00000001 (1)
-| spacinginterval: 0x40200000 (1075838976)
+| attenmultpowrindex: 1
+| spacinginterval: 1075838976
 | frequency: 0 Hz
-| cycle: 0x00000000 (0)
-| voltvalueperpoint: 0x3e4ccccd (1045220557)
+| cycle: 0
+| voltvalueperpoint: 1045220557
 |------ DATA (length:6080) ---------------------------------------------
 | samples: 3040. Total of 2*3040 = 6080 bytes
 |--------- CALCULATED VALUES -------------------------------------------
