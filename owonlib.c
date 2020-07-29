@@ -32,13 +32,13 @@ void litte2BigEndian(char *p){
 void printFileInfo(struct owonInfo xinf){
   int chin;
   printf("|-------------------- FILE DATA, %s (length:%4d) ------------------\n", xinf.idn, xinf.memorysize);
-  printf("| start address: 0x%p\n", xinf.startaddress);
+  printf("| start address: %p\n", xinf.startaddress);
   printf("| file description: %s\n", xinf.idn);
   printf("| file length: %d bytes\n", xinf.memorysize);
   printf("| device name: %s\n", xinf.devicename);
   printf("| number of channels read: %d\n", oinfo.nchannels);
   for (chin=0; chin<oinfo.nchannels; chin++)
-    printf("|   CH%d at address: 0x%p\n", chin+1, xinf.channels[chin].headeraddress);	
+    printf("|   CH%d at address: %p\n", chin+1, xinf.channels[chin].headeraddress);	
   printf("|-----------------------------------------------------------------------\n\n");
 }
 
@@ -46,9 +46,9 @@ void printChannelInfo(struct channelInfo chinfo){
    	printf("\n|-------------------- CHANNEL DATA, %s (length:%4d) ------------------\n", chinfo.channelname,chinfo.blocklength+3);
     printf("| total memory size: %d bytes\n", chinfo.blocklength+3);
     printf("| total memory size: %d bytes\n", chinfo.memorysize);
-    printf("| memory address: 0x%p\n", chinfo.memoryaddress);
-    printf("| header address: 0x%p\n", chinfo.headeraddress);
-    printf("| data address  : 0x%p\n", chinfo.dataaddress);
+    printf("| memory address: %p\n", chinfo.memoryaddress);
+    printf("| header address: %p\n", chinfo.headeraddress);
+    printf("| data address  : %p\n", chinfo.dataaddress);
    	printf("|------ HEADER (length:%2d) ---------------------------------------------\n",
 	   (int) ((char *)chinfo.dataaddress-((char *) chinfo.headeraddress)));
     printf("| channel name: %s\n", chinfo.channelname);
@@ -69,11 +69,11 @@ void printChannelInfo(struct channelInfo chinfo){
     printf("| timebase level: %d\n", (int) chinfo.timebaselevel);
    	printf("| zeropoint: %d\n", (int) chinfo.zeropoint);
    	printf("| vert scale level: %d\n", (int) chinfo.voltagelevel);
-   	printf("| attenmultpowrindex: 0x%08x (%d)\n", (int) chinfo.attenmultpowrindex, (int) chinfo.attenmultpowrindex);
-   	printf("| spacinginterval: 0x%08x (%d)\n", (int) chinfo.spacinginterval, (int) chinfo.spacinginterval);
+   	printf("| attenmultpowrindex: %d\n", (int) chinfo.attenmultpowrindex);
+   	printf("| spacinginterval: %d\n", (int) chinfo.spacinginterval);
    	printf("| frequency: %d Hz\n", (int) chinfo.frequency);
-    printf("| cycle: 0x%08x (%d)\n", (int) chinfo.cycle, (int) chinfo.cycle);
-    printf("| voltvalueperpoint: 0x%08x (%d)\n", (int) chinfo.voltvalueperpoint, (int) chinfo.voltvalueperpoint);
+    printf("| cycle: %d\n", (int) chinfo.cycle);
+    printf("| voltvalueperpoint: %d\n", (int) chinfo.voltvalueperpoint);
    	printf("|------ DATA (length:%4d) ---------------------------------------------\n",2*chinfo.numberofcollectingpoints);
     printf("| samples: %d. Total of 2*%d = %d bytes\n", chinfo.numberofcollectingpoints,
 	   chinfo.numberofcollectingpoints, chinfo.numberofcollectingpoints*2);		
@@ -644,5 +644,8 @@ readnextchannel:
 
 void initializeOwonLib(){
 	int i;
+    if (debug) printf("<<<< Welcome to owonlib debug information <<<<\n");
 	for (i=0; i<10; i++) oinfo.channels[i].memoryaddress = NULL;
+    if (debug) printf("..Initialising libUSB.");
+    usb_init();
 }

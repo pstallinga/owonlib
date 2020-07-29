@@ -12,9 +12,6 @@ int main(int argc, char *argv[]) {
   }
   else owonfilename = owondefaultfilename;
 
-  if (debug) { printf("<<<< Welcome to PSOwon debug information <<<<\n");
-               printf("..Initialising libUSB."); }
-  usb_init();
   if (debug) printf("OK\n..Searching USB buses for Owon\n");
 
   if(findOwons()>0) {
