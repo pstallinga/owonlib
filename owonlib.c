@@ -43,7 +43,7 @@ void printFileInfo(struct owonInfo xinf){
 }
 
 void printChannelInfo(struct channelInfo chinfo){
-   	printf("\n|-------------------- CHANNEL DATA, %s (length:%4d) ------------------\n", chinfo.channelname,chinfo.blocklength+3);
+    printf("\n|-------------------- CHANNEL DATA, %s (length:%4d) ------------------\n", chinfo.channelname,chinfo.blocklength+3);
     printf("| total memory size: %d bytes\n", chinfo.blocklength+3);
     printf("| total memory size: %d bytes\n", chinfo.memorysize);
     printf("| memory address: %p\n", chinfo.memoryaddress);
@@ -63,18 +63,18 @@ void printChannelInfo(struct channelInfo chinfo){
       else
         { printf("|   deep memory wave not available\n"); }
     }
-   	printf("| wholescreencollectingpoints: %d\n", (int) chinfo.wholescreencollectingpoints);
+    printf("| wholescreencollectingpoints: %d\n", (int) chinfo.wholescreencollectingpoints);
     printf("| samplecount2: %d\n", (int) chinfo.numberofcollectingpoints);
-   	printf("| slowmovingnumber: %d\n", (int) chinfo.slowmovingnumber);
+    printf("| slowmovingnumber: %d\n", (int) chinfo.slowmovingnumber);
     printf("| timebase level: %d\n", (int) chinfo.timebaselevel);
-   	printf("| zeropoint: %d\n", (int) chinfo.zeropoint);
-   	printf("| vert scale level: %d\n", (int) chinfo.voltagelevel);
-   	printf("| attenmultpowrindex: %d\n", (int) chinfo.attenmultpowrindex);
-   	printf("| spacinginterval: %d\n", (int) chinfo.spacinginterval);
-   	printf("| frequency: %d Hz\n", (int) chinfo.frequency);
+    printf("| zeropoint: %d\n", (int) chinfo.zeropoint);
+    printf("| vert scale level: %d\n", (int) chinfo.voltagelevel);
+    printf("| attenmultpowrindex: %d\n", (int) chinfo.attenmultpowrindex);
+    printf("| spacinginterval: %d\n", (int) chinfo.spacinginterval);
+    printf("| frequency: %d Hz\n", (int) chinfo.frequency);
     printf("| cycle: %d\n", (int) chinfo.cycle);
     printf("| voltvalueperpoint: %d\n", (int) chinfo.voltvalueperpoint);
-   	printf("|------ DATA (length:%4d) ---------------------------------------------\n",2*chinfo.numberofcollectingpoints);
+    printf("|------ DATA (length:%4d) ---------------------------------------------\n",2*chinfo.numberofcollectingpoints);
     printf("| samples: %d. Total of 2*%d = %d bytes\n", chinfo.numberofcollectingpoints,
         chinfo.numberofcollectingpoints, chinfo.numberofcollectingpoints*2);		
    	printf("|--------- CALCULATED VALUES -------------------------------------------\n");
