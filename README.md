@@ -7,8 +7,7 @@ It needs the libusb-dev library installed on your system to have access to the u
 
 I used CodeLite for writing and debugging. Make sure you add "-lusb" to your CodeLite project Linker Options. If the #define debug is set nonzero, it will output debugging information (see file 'debug.txt'). Otherwise it will only output what the main program requests.
 
-If it cannot communicate with the device because of permissions, put these two lines in the file '/etc/udev/rules.d/10owon.rules':<br>
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="5345", MODE="0666"<br>
-SUBSYSTEMS=="usb_device", ATTRS{idVendor}=="5345", MODE="0666"
+Put these two lines in the file '70owon.rules' in either '/etc/udev/rules.d/' or '/lib/udev/rules.d/':<br>
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="5345", ATTRS{idProduct}=="1234", MODE="0666"
 
 Peter Stallinga, peter.stallinga at gmail
