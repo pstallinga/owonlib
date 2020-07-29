@@ -43,45 +43,45 @@ void printFileInfo(struct owonInfo xinf){
 }
 
 void printChannelInfo(struct channelInfo chinfo){
-    printf("\n|-------------------- CHANNEL DATA, %s (length:%4d) ------------------\n", chinfo.channelname,chinfo.blocklength+3);
-    printf("| total memory size: %d bytes\n", chinfo.blocklength+3);
-    printf("| total memory size: %d bytes\n", chinfo.memorysize);
-    printf("| memory address: %p\n", chinfo.memoryaddress);
-    printf("| header address: %p\n", chinfo.headeraddress);
-    printf("| data address  : %p\n", chinfo.dataaddress);
-   	printf("|------ HEADER (length:%2d) ---------------------------------------------\n",
-        (int) ((char *)chinfo.dataaddress-((char *) chinfo.headeraddress)));
-    printf("| channel name: %s\n", chinfo.channelname);
-    printf("| data block length: %d bytes\n", (int) chinfo.blocklength);
-    if(chinfo.extradatavalid){
-      if ((chinfo.extendedflag&1)==1)
-        { printf("|   deep memory wave\n");}
-      else
-        { printf("|   normal wave\n"); }
-      if ((chinfo.extendedflag&2)==2)
-        { printf("|   deep memory wave available\n"); }
-      else
-        { printf("|   deep memory wave not available\n"); }
-    }
-    printf("| wholescreencollectingpoints: %d\n", (int) chinfo.wholescreencollectingpoints);
-    printf("| samplecount2: %d\n", (int) chinfo.numberofcollectingpoints);
-    printf("| slowmovingnumber: %d\n", (int) chinfo.slowmovingnumber);
-    printf("| timebase level: %d\n", (int) chinfo.timebaselevel);
-    printf("| zeropoint: %d\n", (int) chinfo.zeropoint);
-    printf("| vert scale level: %d\n", (int) chinfo.voltagelevel);
-    printf("| attenmultpowrindex: %d\n", (int) chinfo.attenmultpowrindex);
-    printf("| spacinginterval: %d\n", (int) chinfo.spacinginterval);
-    printf("| frequency: %d Hz\n", (int) chinfo.frequency);
-    printf("| cycle: %d\n", (int) chinfo.cycle);
-    printf("| voltvalueperpoint: %d\n", (int) chinfo.voltvalueperpoint);
-    printf("|------ DATA (length:%4d) ---------------------------------------------\n",2*chinfo.numberofcollectingpoints);
-    printf("| samples: %d. Total of 2*%d = %d bytes\n", chinfo.numberofcollectingpoints,
-        chinfo.numberofcollectingpoints, chinfo.numberofcollectingpoints*2);		
-   	printf("|--------- CALCULATED VALUES -------------------------------------------\n");
-   	printf("| frequency: %e GS/s\n", chinfo.frequency/1e9);
-   	printf("| time base: %e s\n", chinfo.timeBase);
-   	printf("| vertical scale: %e V\n", chinfo.vertScale);
-   	printf("|-----------------------------------------------------------------------\n");
+  printf("\n|-------------------- CHANNEL DATA, %s (length:%4d) ------------------\n", chinfo.channelname,chinfo.blocklength+3);
+  printf("| total memory size: %d bytes\n", chinfo.blocklength+3);
+  printf("| total memory size: %d bytes\n", chinfo.memorysize);
+  printf("| memory address: %p\n", chinfo.memoryaddress);
+  printf("| header address: %p\n", chinfo.headeraddress);
+  printf("| data address  : %p\n", chinfo.dataaddress);
+  printf("|------ HEADER (length:%2d) ---------------------------------------------\n",
+      (int) ((char *)chinfo.dataaddress-((char *) chinfo.headeraddress)));
+  printf("| channel name: %s\n", chinfo.channelname);
+  printf("| data block length: %d bytes\n", (int) chinfo.blocklength);
+  if(chinfo.extradatavalid){
+    if ((chinfo.extendedflag&1)==1)
+      { printf("|   deep memory wave\n");}
+    else
+      { printf("|   normal wave\n"); }
+    if ((chinfo.extendedflag&2)==2)
+      { printf("|   deep memory wave available\n"); }
+    else
+      { printf("|   deep memory wave not available\n"); }
+  }
+  printf("| wholescreencollectingpoints: %d\n", (int) chinfo.wholescreencollectingpoints);
+  printf("| samplecount2: %d\n", (int) chinfo.numberofcollectingpoints);
+  printf("| slowmovingnumber: %d\n", (int) chinfo.slowmovingnumber);
+  printf("| timebase level: %d\n", (int) chinfo.timebaselevel);
+  printf("| zeropoint: %d\n", (int) chinfo.zeropoint);
+  printf("| vert scale level: %d\n", (int) chinfo.voltagelevel);
+  printf("| attenmultpowrindex: %d\n", (int) chinfo.attenmultpowrindex);
+  printf("| spacinginterval: %d\n", (int) chinfo.spacinginterval);
+  printf("| frequency: %d Hz\n", (int) chinfo.frequency);
+  printf("| cycle: %d\n", (int) chinfo.cycle);
+  printf("| voltvalueperpoint: %d\n", (int) chinfo.voltvalueperpoint);
+  printf("|------ DATA (length:%4d) ---------------------------------------------\n",2*chinfo.numberofcollectingpoints);
+  printf("| samples: %d. Total of 2*%d = %d bytes\n", chinfo.numberofcollectingpoints,
+      chinfo.numberofcollectingpoints, chinfo.numberofcollectingpoints*2);		
+  printf("|--------- CALCULATED VALUES -------------------------------------------\n");
+  printf("| frequency: %e GS/s\n", chinfo.frequency/1e9);
+  printf("| time base: %e s\n", chinfo.timeBase);
+  printf("| vertical scale: %e V\n", chinfo.vertScale);
+  printf("|-----------------------------------------------------------------------\n");
 }
 
 void decodeChannelHeader(char *xbuffer) {
