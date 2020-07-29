@@ -1,12 +1,15 @@
 <<<< Welcome to owonlib debug information >>>>
-Initialising libUSB.OK
---Searching USB buses for Owon
---Found an Owon device 5345:1234 on bus 002
---Resetting device.OK
---Found an Owon device 5345:1234 on bus 002
---Resetting device.OK
+Initialising libUSB
+Searching USB buses for Owon(s)
+--found an Owon device 5345:1234 on bus 002
+--resetting device.OK
+--found an Owon device 5345:1234 on bus 002
+--resetting device.OK
 Found a total of 2 Owon devices
-Trying USB lock on device  5345:1234.Trying to set device to default configuration. OK
+Trying USB lock on device  5345:1234
+--device locked
+Trying to set device to default configuration
+--default configuration loaded
 Trying to claim interface 0 of 5345:1234 and
 --Successfully claimed interface 0 to 5345:1234 
 Trying to get the device descriptor
@@ -14,9 +17,9 @@ Trying to get the device descriptor
 Entering readOwonMemory:
 Trying to bulk write STARTBIN command to device.
 --Successful bulk write of 0x0008 bytes
-Trying to read response header 0x000c (12) bytes from device.
---Successful read of 000c (12) bytes
-Owon Response Header:	0x00000000: 31 18 00 00 00 00 00 00 81 00 00 00 
+Trying to read response header 12 bytes from device.
+--Successful read of 12 bytes
+Owon Response Header: 31 18 00 00 00 00 00 00 81 00 00 00 
 dataBufSize = 0x00001831 (6193) bytes
 Trying to reserve memory space for the read buffer of 0x00001831 (6193) bytes
 --Successful memory allocation
@@ -39,8 +42,8 @@ Found vector data:
     File description: SPBS02
     File length: 6193 bytes
     Device name: Owon SDS7102
-Time stamp. Seconds since 1 January 1970: 1596023025
-Time: 29/Jul/2020 12:43:45
+Time stamp. Seconds since 1 January 1970: 1596023735
+Time: 29/Jul/2020 12:55:35
 |-------------------- FILE DATA, SPBS02 (length:6193) ------------------
 | start address: 0x55555555c770
 | file description: SPBS02
@@ -69,13 +72,13 @@ Hexdump of channel header:
 	 ASCII  :  �  �  �                       ?   
 	00000030: 00 00 00 00 00 00 00 00 00 20 42 ff ff ff ff fe 
 	 ASCII  :                       B  �  �  �  �  � 
-	00000040: ff ff ff ff ff ff ff fe ff fe ff ff ff ff ff ff 
+	00000040: ff ff ff ff ff ff ff fe ff ff ff ff ff ff ff fe 
 	 ASCII  :  �  �  �  �  �  �  �  �  �  �  �  �  �  �  �  � 
 
 Owon 3rd-int flag>128: We're still not done yet!!
-Trying to read response header 0x000c (12) bytes from device.
---Successful read of 000c (12) bytes
-Owon Response Header:	0x00000000: fb 17 00 00 00 00 00 00 80 00 00 00 
+Trying to read response header 12 bytes from device.
+--Successful read of 12 bytes
+Owon Response Header: fb 17 00 00 00 00 00 00 80 00 00 00 
 dataBufSize = 0x000017fb (6139) bytes
 Trying to reserve memory space for the read buffer of 0x000017fb (6139) bytes
 --Successful memory allocation
@@ -103,7 +106,7 @@ Hexdump of channel header:
 	 ASCII  :                             ?   
 	00000030: 00 00 00 00 00 00 00 00 00 20 42 00 00 01 00 00 
 	 ASCII  :                       B           
-	00000040: 00 01 00 00 00 01 00 00 00 00 00 00 00 01 00 00 
+	00000040: 00 00 00 00 00 01 00 00 00 00 00 00 00 01 00 00 
 	 ASCII  :                                 
 |-------------------- FILE DATA, SPBS02 (length:6193) ------------------
 | start address: 0x55555555c770
@@ -180,7 +183,10 @@ Freeing memory:
 --block 0, size 6193 bytes at 0x55555555c770.
 Trying to release interface 0
 --Successful release of interface 0
-Trying USB lock on device  5345:1234.Trying to set device to default configuration. OK
+Trying USB lock on device  5345:1234
+--device locked
+Trying to set device to default configuration
+--default configuration loaded
 Trying to claim interface 0 of 5345:1234 and
 --Successfully claimed interface 0 to 5345:1234 
 Trying to get the device descriptor
@@ -188,9 +194,9 @@ Trying to get the device descriptor
 Entering readOwonMemory:
 Trying to bulk write STARTBIN command to device.
 --Successful bulk write of 0x0008 bytes
-Trying to read response header 0x000c (12) bytes from device.
---Successful read of 000c (12) bytes
-Owon Response Header:	0x00000000: 05 18 00 00 00 00 00 00 81 00 00 00 
+Trying to read response header 12 bytes from device.
+--Successful read of 12 bytes
+Owon Response Header: 05 18 00 00 00 00 00 00 81 00 00 00 
 dataBufSize = 0x00001805 (6149) bytes
 Trying to reserve memory space for the read buffer of 0x00001805 (6149) bytes
 --Successful memory allocation
@@ -215,8 +221,8 @@ Found vector data:
     File description: SPBS02
     Device name: Owon SDS7102
     File length: 6149 bytes
-Time stamp. Seconds since 1 January 1970: 1596023025
-Time: 29/Jul/2020 12:43:45
+Time stamp. Seconds since 1 January 1970: 1596023736
+Time: 29/Jul/2020 12:55:36
 |-------------------- FILE DATA, SPBS02 (length:6149) ------------------
 | start address: 0x55555555c770
 | file description: SPBS02
@@ -243,15 +249,15 @@ Hexdump of channel header:
                                                    
 	00000020: 00 00 00 08 00 00 00 01 00 00 00 00 00 20 40 00 
 	 ASCII  :                              @   
-	00000030: 00 00 00 00 00 00 00 00 00 20 42 ff ff ff ff ff 
-	 ASCII  :                       B  �  �  �  �  � 
-	00000040: ff ff ff 00 00 00 00 ff ff ff ff ff ff 00 00 ff 
-	 ASCII  :  �  �  �          �  �  �  �  �  �      � 
+	00000030: 00 00 00 00 00 00 00 00 00 20 42 ff ff 00 00 ff 
+	 ASCII  :                       B  �  �      � 
+	00000040: ff ff ff ff ff ff ff ff ff ff ff 00 00 00 00 ff 
+	 ASCII  :  �  �  �  �  �  �  �  �  �  �  �          � 
 
 Owon 3rd-int flag>128: We're still not done yet!!
-Trying to read response header 0x000c (12) bytes from device.
---Successful read of 000c (12) bytes
-Owon Response Header:	0x00000000: fb 17 00 00 00 00 00 00 80 00 00 00 
+Trying to read response header 12 bytes from device.
+--Successful read of 12 bytes
+Owon Response Header: fb 17 00 00 00 00 00 00 80 00 00 00 
 dataBufSize = 0x000017fb (6139) bytes
 Trying to reserve memory space for the read buffer of 0x000017fb (6139) bytes
 --Successful memory allocation
@@ -277,16 +283,14 @@ Hexdump of channel header:
                                                    
 	00000020: 00 00 00 01 00 00 00 01 00 00 00 00 00 20 40 00 
 	 ASCII  :                               @   
-	00000030: 00 00 00 00 00 00 00 cd cc 4c 3e 0a 00 0b 00 08 
+	00000030: 00 00 00 00 00 00 00 cd cc 4c 3e 0a 00 0c 00 07 
 	 ASCII  :                �  �  L  >  
     
+         
+	00000040: 00 08 00 09 00 0d 00 09 00 0d 00 0b 00 0c 00 07 
+    	    II  :       	    
         
-	00000040: 00 08 00 0c 00 0c 00 08 00 0c 00 09 00 0c 00 09 
-	 ASCII  :       
-                            
-                                   
-                                       	    
-                                                	 
+             
 |-------------------- FILE DATA, SPBS02 (length:6149) ------------------
 | start address: 0x55555555c770
 | file description: SPBS02
