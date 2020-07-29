@@ -410,7 +410,8 @@ int owonCommand(char *cmd){
 	  printf("ERROR: Failed to bulk write %04x '%s'\n", ret, strerror(-ret));
 	  return(ret);
 	}
-	if (debug) printf("--Successful bulk write of 0x%04x bytes\n", (unsigned int) strlen(cmd));	
+	if (debug) printf("--Successful bulk write of 0x%04x bytes\n",
+      (unsigned int) strlen(cmd));	
     return(0);
 }
 
@@ -419,7 +420,7 @@ int openCommunication(struct usb_device *dev){
   char owondescriptorbuffer[0x12];
 
 	if(dev->descriptor.idVendor != USB_LOCK_VENDOR || dev->descriptor.idProduct != USB_LOCK_PRODUCT) {
-	  printf("ERROR: Failed device lock attempt: not passed a USB device handle!\n");
+	  printf("ERROR: Failed device lock attempt: not passed a USB device handle\n");
 	  return(-1);
 	}
 
@@ -432,6 +433,8 @@ int openCommunication(struct usb_device *dev){
 	  if(ret) {
 		 if (debug) printf("\n"); 
 		 printf("ERROR: Failed to set default configuration %d '%s'\n", ret, strerror(-ret));
+		 printf("  set a communication permission in file /etc/udev/rules.d/70owon.rules:\n");
+		 printf("    SUBSYSTEMS==\"usb\", ATTRS{idVendor}==\"5345\", ATTRS{idProduct}==\"1234\", MODE=\"0666\"\n");
 		 return(ret);
 	  }
 	  else 

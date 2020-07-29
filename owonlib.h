@@ -14,19 +14,19 @@
 
 #define debug 1
 
-#define USB_LOCK_VENDOR 0x5345			  // Dev : (5345) Owon Technologies
-#define USB_LOCK_PRODUCT 0x1234			  // 	   (1234) PDS Digital Oscilloscope
-#define RESPONSE_START_LENGTH 12          // always replies with at least this 'header'
+#define USB_LOCK_VENDOR 0x5345			  // (5345) Owon Technologies
+#define USB_LOCK_PRODUCT 0x1234			  // (1234) PDS Digital Oscilloscope
+#define RESPONSE_START_LENGTH 12         // minimum reply 'header'
 #define OWON_START_DATA_CMD "STARTBIN"
 #define BULK_WRITE_ENDPOINT 0x03
 #define BULK_READ_ENDPOINT 0x81
 #define DEFAULT_INTERFACE 0x00
 #define DEFAULT_CONFIGURATION 0x01
 #define DEFAULT_TIMEOUT	500				  // ms USB timeout
-#define DEFAULT_BITMAP_READ_TIMEOUT 3000  // ms USB timeout for BMP
+#define DEFAULT_BITMAP_READ_TIMEOUT 3000 // ms USB timeout for BMP
 #define MAX_OWON_DEVICES 10				  // max number of scopes connected
 #define VECTORGRAM_BLOCK_HEADER_CHNAMELEN 3	// "CH1", "CH2", "CHA", etc.
-#define MAX_CHANNELS 10                   // every scope can have up to 10 channels
+#define MAX_CHANNELS 10                  // every scope can have up to 10 channels
 
 struct usb_device *owon_devices[MAX_OWON_DEVICES];
 // usb_dev_handle *devhandle;
@@ -51,12 +51,12 @@ struct channelInfo {
 	int cycle;
 	int voltvalueperpoint;
 // derived info (not directly in header):
-	double vertScale; // in volts
-	double timeBase;  // in seconds
+	double vertScale;        // in volts
+	double timeBase;         // in seconds
 	int extradatavalid;
 	void *memoryaddress;     // pointer to start of memory
-	void *headeraddress;     // pointer to start of header (for channel>0 same as above)
-	short int *dataaddress;  // pointer to start of data (2 bytes per data point)
+	void *headeraddress;     //  start of header (for channel>0 same as above)
+	short int *dataaddress;  //  start of data (2 bytes per data point)
 	int memorysize;
 };
 

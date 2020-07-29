@@ -25,7 +25,8 @@ int main(int argc, char *argv[]) {
         saveDataMatlab(fn);
         if (debug) printf("Freeing memory:\n");
         for (i=oinfo.nchannels-1; i>=0; i--){
-           if (debug) printf("--block %d, size %d bytes at %p.\n", i, oinfo.channels[i].memorysize, oinfo.channels[i].memoryaddress);
+           if (debug) printf("--block %d, size %d bytes at %p.\n", i,
+              oinfo.channels[i].memorysize, oinfo.channels[i].memoryaddress);
 		   free(oinfo.channels[i].memoryaddress);		
 	    }
 		closeCommunication();
@@ -33,7 +34,7 @@ int main(int argc, char *argv[]) {
     }
   }	
   
-  if (debug) printf("\nHave a nice day!\n");
+  printf("\nHave a nice day!\n");
   if (!owonfilename) free(owonfilename);
   
   return 0;
