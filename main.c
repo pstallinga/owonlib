@@ -13,24 +13,24 @@ int main(int argc, char *argv[]) {
   else owonfilename = owondefaultfilename;
 
   if(findOwons()>0) {
-	for(iowon=0; iowon < numowondevices; iowon++){
-   	  if (!openCommunication(owon_devices[iowon])){ 
+	  for(iowon=0; iowon < numowondevices; iowon++){
+      if (!openCommunication(owon_devices[iowon])){ 
   	    owonReadMemory(owon_devices[iowon]);
         printFileInfo(oinfo);
         for (i=0; i<oinfo.nchannels; i++)
           printChannelInfo(oinfo.channels[i]);
-		sprintf(fn, "psowon%d.asc", iowon);
+		    sprintf(fn, "psowon%d.asc", iowon);
         saveDataASCII(fn);
-		sprintf(fn, "psowon%d.m", iowon);
+		    sprintf(fn, "psowon%d.m", iowon);
         saveDataMatlab(fn);
         if (debug) printf("Freeing memory:\n");
         for (i=oinfo.nchannels-1; i>=0; i--){
-           if (debug) printf("--block %d, size %d bytes at %p.\n", i,
-              oinfo.channels[i].memorysize, oinfo.channels[i].memoryaddress);
-		   free(oinfo.channels[i].memoryaddress);		
+          if (debug) printf("--block %d, size %d bytes at %p.\n", i,
+                oinfo.channels[i].memorysize, oinfo.channels[i].memoryaddress);
+		      free(oinfo.channels[i].memoryaddress);		
+	      }
+		    closeCommunication();
 	    }
-		closeCommunication();
-	  }
     }
   }	
   
