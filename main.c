@@ -12,8 +12,6 @@ int main(int argc, char *argv[]) {
   }
   else owonfilename = owondefaultfilename;
 
-  if (debug) printf("OK\n--Searching USB buses for Owon\n");
-
   if(findOwons()>0) {
 	for(iowon=0; iowon < numowondevices; iowon++){
    	  if (!openCommunication(owon_devices[iowon])){ 

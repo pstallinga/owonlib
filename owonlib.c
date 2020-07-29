@@ -271,16 +271,19 @@ int findOwons() {
 	  struct usb_dev_handle *dh;
    	  struct usb_device *dev;
 	  int ret=0;
+
 	  
 	  usb_find_busses();
 	  usb_find_devices();
+
+      if (debug) printf("Searching USB buses for Owon(s)\n");
 
 	  for (bus = usb_busses; bus; bus = bus->next) {
 	    for (dev = bus->devices; dev; dev = dev->next)
 	      if(dev->descriptor.idVendor == USB_LOCK_VENDOR && dev->descriptor.idProduct == USB_LOCK_PRODUCT) {
 	        found_usb_lock(dev);
-	        if (debug) printf("--Found an Owon device %04x:%04x on bus %s\n", USB_LOCK_VENDOR,USB_LOCK_PRODUCT, bus->dirname);
-	    	if (debug) printf("--Resetting device.");
+	        if (debug) printf("--found an Owon device %04x:%04x on bus %s\n", USB_LOCK_VENDOR,USB_LOCK_PRODUCT, bus->dirname);
+	    	if (debug) printf("--resetting device.");
 	    	dh=usb_open(dev);
 			usb_reset(dh);
 	    	if (debug) printf("OK\n");
@@ -420,11 +423,11 @@ int openCommunication(struct usb_device *dev){
 	  return(-1);
 	}
 
-	if (debug) printf("Trying USB lock on device  %04x:%04x.",
+	if (debug) printf("Trying USB lock on device  %04x:%04x\n",
 			dev->descriptor.idVendor, dev->descriptor.idProduct);
 	devhandle = usb_open(dev);
 	if(devhandle > 0) {
-      if (debug) printf("Trying to set device to default configuration.");
+	  if (debug) printf("--device locked\nTrying to set device to default configuration\n");
 	  ret = usb_set_configuration(devhandle, DEFAULT_CONFIGURATION);
 	  if(ret) {
 		 if (debug) printf("\n"); 
@@ -432,7 +435,7 @@ int openCommunication(struct usb_device *dev){
 		 return(ret);
 	  }
 	  else 
-	     { if (debug) printf(" OK\n");}
+	     { if (debug) printf("--default configuration loaded\n");}
 
       if (debug) printf("Trying to claim interface 0 of %04x:%04x and\n",
 			dev->descriptor.idVendor, dev->descriptor.idProduct);
@@ -510,22 +513,20 @@ void owonReadMemory(struct usb_device *dev) {
     oinfo.nchannels=0;
 	
 readnextchannel:
-	if (debug) printf("Trying to read response header 0x%04x (%d) bytes from device.\n",
-	  (unsigned int) RESPONSE_START_LENGTH, (unsigned int)  RESPONSE_START_LENGTH);
+	if (debug) printf("Trying to read response header %d bytes from device.\n", (unsigned int) RESPONSE_START_LENGTH);
 	ret = usb_bulk_read(devhandle, BULK_READ_ENDPOINT, responseheader,
 			RESPONSE_START_LENGTH, DEFAULT_TIMEOUT);
 	if(ret<0) {
 		usb_resetep(devhandle,BULK_READ_ENDPOINT);
-		printf("ERROR: Failed to read: 0x%04x (%d) bytes: '%s'\n",
-		  (unsigned int) RESPONSE_START_LENGTH,(unsigned int) RESPONSE_START_LENGTH, strerror(-ret));
+		printf("ERROR: Failed to read: %d bytes: '%s'\n", (unsigned int) RESPONSE_START_LENGTH, strerror(-ret));
 		return;
 	}
 	else
-	  { if (debug) printf("--Successful read of %04x (%d) bytes\n", ret, ret);}
+	  { if (debug) printf("--Successful read of %d bytes\n", ret); }
 	  
     if(debug) {
         // display the contents of the Owon Response Buffer
-	    printf("Owon Response Header:\t0x%08x: ",0);
+	    printf("Owon Response Header: ");
 	    for(i=0; i<ret; i++)
            printf("%02x ", (unsigned char)responseheader[i]);
         printf("\n");
@@ -644,8 +645,8 @@ readnextchannel:
 
 void initializeOwonLib(){
 	int i;
-    if (debug) printf("<<<< Welcome to owonlib debug information >>>>\n");
+    if (debug) { printf("<<<< Welcome to owonlib debug information >>>>\n");
+       printf("Initialising libUSB\n");}
 	for (i=0; i<10; i++) oinfo.channels[i].memoryaddress = NULL;
-    if (debug) printf("Initialising libUSB.");
     usb_init();
 }
