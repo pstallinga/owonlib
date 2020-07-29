@@ -283,7 +283,7 @@ int findOwons() {
 	      if(dev->descriptor.idVendor == USB_LOCK_VENDOR && dev->descriptor.idProduct == USB_LOCK_PRODUCT) {
 	        found_usb_lock(dev);
 	        if (debug) printf("--found an Owon device %04x:%04x on bus %s\n", USB_LOCK_VENDOR,USB_LOCK_PRODUCT, bus->dirname);
-	    	if (debug) printf("--resetting device.");
+	    	if (debug) printf("--resetting device ... ");
 	    	dh=usb_open(dev);
 			usb_reset(dh);
 	    	if (debug) printf("OK\n");
@@ -423,7 +423,7 @@ int openCommunication(struct usb_device *dev){
 	  return(-1);
 	}
 
-	if (debug) printf("Trying USB lock on device  %04x:%04x\n",
+	if (debug) printf("Trying USB lock on device %04x:%04x\n",
 			dev->descriptor.idVendor, dev->descriptor.idProduct);
 	devhandle = usb_open(dev);
 	if(devhandle > 0) {
