@@ -372,8 +372,8 @@ void saveDataASCII(char *fname) {
 }
 
 void saveDataMatlab(char *fname){
-	int ichan;
-	FILE *fout;
+  int ichan;
+  FILE *fout;
   
   fout = fopen(fname, "w");
   fprintf(fout, "%% Owon %s data file. PjotrSoft v28-JUL-2020\n", oinfo.devicename);
@@ -395,7 +395,7 @@ void saveDataMatlab(char *fname){
 }
 
 int owonCommand(char *cmd){
-    int ret=0;
+  int ret=0;
 
       // clear any halt status on the bulk OUT endpoint
   ret = usb_clear_halt(devhandle, BULK_WRITE_ENDPOINT);
